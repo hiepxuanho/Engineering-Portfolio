@@ -36,10 +36,9 @@ export default function ParticleNetwork() {
         if (this.y < 0 || this.y > height) this.vy *= -1;
       }
 
-      draw() {
+      draw(isDarkMode) {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         ctx.fillStyle = isDarkMode ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.3)';
         ctx.fill();
       }
@@ -52,12 +51,13 @@ export default function ParticleNetwork() {
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
-      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      // Check the data-theme attribute set by next-themes instead of just system preference
+      const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
       const lineColor = isDarkMode ? '255, 255, 255' : '0, 0, 0';
 
       for (let i = 0; i < numParticles; i++) {
         particles[i].update();
-        particles[i].draw();
+        particles[i].draw(isDarkMode);
 
         for (let j = i + 1; j < numParticles; j++) {
           const dx = particles[i].x - particles[j].x;
