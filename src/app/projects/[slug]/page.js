@@ -76,7 +76,8 @@ export default async function ProjectPage({ params }) {
           </div>
         )}
 
-        <h1 className="article-title">{project.title}</h1>
+        <h1 className="article-title" style={{ marginBottom: project.date ? '0.5rem' : '2rem' }}>{project.title}</h1>
+        {project.date && <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '2rem', fontWeight: '500' }}>{project.date}</p>}
         
         <div>
           {project.body ? (

@@ -10,6 +10,12 @@ export const projectType = {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'date',
+      title: 'Project Date',
+      type: 'string',
+      description: 'e.g. "Fall 2023" or "March 2024"',
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',

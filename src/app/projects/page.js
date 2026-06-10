@@ -8,6 +8,7 @@ export default async function ProjectsPage() {
   const query = `*[_type == "project"] | order(_createdAt desc) {
     _id,
     title,
+    date,
     slug,
     mainImage,
     description
@@ -46,6 +47,7 @@ export default async function ProjectsPage() {
               </div>
               <div className="project-content">
                 <h2 className="project-title">{project.title}</h2>
+                {project.date && <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.75rem', fontWeight: '500' }}>{project.date}</p>}
                 <p className="project-desc">{project.description}</p>
               </div>
             </Link>
