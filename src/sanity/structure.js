@@ -3,7 +3,8 @@ export const structure = (S) =>
     .title('Content')
     .items([
       S.documentTypeListItem('project').title('Projects'),
+      S.documentTypeListItem('homelab').title('Homelab Equipment'),
       ...S.documentTypeListItems().filter(
-        (listItem) => !['project'].includes(listItem.getId())
+        (listItem) => !['project', 'homelab'].includes(listItem.getId())
       ),
     ])

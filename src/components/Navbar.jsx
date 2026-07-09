@@ -11,6 +11,9 @@ export default function Navbar() {
         <Link href="/projects" className="nav-item">
           PROJECTS
         </Link>
+        <Link href="/homelab" className="nav-item">
+          HOMELAB
+        </Link>
       </div>
       <div className="theme-toggle-wrapper">
         <ThemeToggle />
