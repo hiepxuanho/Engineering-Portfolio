@@ -16,7 +16,7 @@ export default function Home() {
         <div className="home-content">
           <h1 className="home-title">Eric Ho</h1>
           <div className="mono home-bio">
-            Electrical Engineering Student / Project Portfolio
+            Electrical Engineering - Power Electronics student
           </div>
 
           <div className="social-links">
