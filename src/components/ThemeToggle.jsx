@@ -18,15 +18,13 @@ export default function ThemeToggle() {
     return <div className="theme-toggle-placeholder" style={{ width: '2rem', height: '2rem' }} />;
   }
 
-  const currentTheme = resolvedTheme || theme;
-
   return (
     <button
       className="theme-toggle"
-      onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       aria-label="Toggle Theme"
     >
-      {currentTheme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+      {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
     </button>
   );
 }
