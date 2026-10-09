@@ -1,7 +1,15 @@
+'use client';
+
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith('/studio')) {
+    return null;
+  }
   return (
     <nav className="navbar">
       <div className="nav-links">

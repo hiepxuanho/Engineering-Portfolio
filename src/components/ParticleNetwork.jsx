@@ -1,11 +1,15 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function ParticleNetwork() {
+  const pathname = usePathname();
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    if (pathname?.startsWith('/studio')) return;
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     let animationFrameId;
@@ -93,6 +97,10 @@ export default function ParticleNetwork() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  if (pathname?.startsWith('/studio')) {
+    return null;
+  }
 
   return (
     <canvas
