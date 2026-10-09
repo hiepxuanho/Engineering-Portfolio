@@ -45,9 +45,15 @@ export default async function HomelabDetailPage({ params }) {
     },
     marks: {
       link: ({children, value}) => {
-        const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;
+        const href = value?.href || '#';
+        const isExternal = !href.startsWith('/');
         return (
-          <a href={value.href} rel={rel} target="_blank" style={{ color: '#6366f1', textDecoration: 'none' }} onMouseOver={(e) => e.target.style.textDecoration = 'underline'} onMouseOut={(e) => e.target.style.textDecoration = 'none'}>
+          <a
+            href={href}
+            rel={isExternal ? 'noreferrer noopener' : undefined}
+            target={isExternal ? '_blank' : undefined}
+            className="portable-link"
+          >
             {children}
           </a>
         );
